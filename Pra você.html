@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pra Você ❤️</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #880e4f;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ffe4ec, #f8bbd0, #e1bee7, #d1c4e9);
+            background-size: 400% 400%;
+            animation: fundoAnimado 12s ease infinite;
+        }
+
+        @keyframes fundoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 50px;
+        }
+
+        .mensagem {
+            margin-top: 15px;
+            font-size: 1.3em;
+            padding: 0 15px;
+        }
+
+        .botao {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #880e4f;
+            border: 2px solid #880e4f;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .botao:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        .coraçao {
+            position: absolute;
+            color: #e91e63;
+            font-size: 20px;
+            animation: cair linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes cair {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Oi, meu amor ❤️</h1>
+    <div class="mensagem">
+        <p>No meio de códigos e bagunças, fiz essa surpresa do meu jeito nerdola e apaixonado de ser - simples, mas cheia de sentimentos.</p>
+        <p>Te amo demais e tô muito feliz de ter você comigo.</p>
+        <p>De seu nego, Yago❤️.</p>
+    </div>
+    <button class="botao" onclick="document.getElementById('musica').play()">🎶 Tocar Música 🎶</button>
+
+    <audio id="musica" loop>
+        <source src="Minha-Felicidade.mp3.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio :(
+    </audio>
+
+    <script>
+        function criarCoracao() {
+            const coracao = document.createElement('div');
+            coracao.classList.add('coraçao');
+            coracao.style.left = Math.random() * 100 + 'vw';
+            coracao.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            coracao.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            coracao.innerText = '❤️';
+            document.body.appendChild(coracao);
+            setTimeout(() => {
+                coracao.remove();
+            }, 6000);
+        }
+
+        setInterval(criarCoracao, 300);
+    </script>
+</body>
+</html>
